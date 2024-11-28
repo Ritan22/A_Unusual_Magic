@@ -6,6 +6,7 @@ public class PlayerInteractor : MonoBehaviour
 {
     public static bool canInteract = false;
     private Activator activator;
+    public static int goOn;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,8 +19,24 @@ public class PlayerInteractor : MonoBehaviour
         if (canInteract && Input.GetKeyDown(KeyCode.E))
         {
             Debug.LogWarning("Hai premuto E");
-            print("Enabled: " + GameObject.FindObjectOfType<Activator>().GetComponent<Activator>()._enabled);
             activator.StartDialogue();
         }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Interactable"))
+        {
+            Interactable.isActive = true;
+            canInteract = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Interactable"))
+        {
+            Interactable.isActive = false;
+            canInteract = false;
+        }
+
     }
 }
