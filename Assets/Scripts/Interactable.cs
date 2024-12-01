@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    public static bool isActive = false;
+    public bool isActive = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,5 +15,22 @@ public class Interactable : MonoBehaviour
     void Update()
     {
         
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("MainCamera"))
+        {
+            isActive = true;
+            PlayerInteractor.canInteract = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("MainCamera"))
+        {
+            isActive = false;
+            PlayerInteractor.canInteract = false;
+        }
+
     }
 }
