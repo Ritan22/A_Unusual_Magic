@@ -37,6 +37,6 @@ public class TaskManager : MonoBehaviour
         if (taskManager == 15){}
         if (taskManager == 16){}
         if (taskManager == 17){}
-        print(taskManager);
+        //print(taskManager);
     }
 }
