@@ -612,8 +612,11 @@ MonoBehaviour:
   - hai la carta igienica?
   - Bravo
   - Vai a cagare scemo
-  isActive: 0
-  _dialogueIndex: 0
+  text: {fileID: 0}
+  inizia_Il_Detective: 0
+  _1: {fileID: 0}
+  _2: {fileID: 0}
+  sprite: {fileID: 0}
 --- !u!1 &928021757
 GameObject:
   m_ObjectHideFlags: 0
