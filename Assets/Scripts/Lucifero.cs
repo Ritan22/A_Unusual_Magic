@@ -23,7 +23,7 @@ public class Lucifero : MonoBehaviour
     [SerializeField] private Sprite lucifero;
     [SerializeField] private int newSpriteLuciferoCount;
     [SerializeField] private SpriteRenderer render;
-    [SerializeField] private bool canva = false;
+    [SerializeField] private GameObject canva;
 
     // Start is called before the first frame update
     void Start()
@@ -46,10 +46,10 @@ public class Lucifero : MonoBehaviour
         
        if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.JoystickButton1)) && _dialogueIndex == _dialogues.Count){
             TaskManager.taskManager++;
-            canva = false;
+            canva.SetActive(false);
             _dialogueIndex = 0;
         }else if (isActive==true && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.JoystickButton1)) && _dialogueIndex != _dialogues.Count){
-            canva = true;
+            canva.SetActive(true);
             StartDialogue();
         }
 

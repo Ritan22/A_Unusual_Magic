@@ -20,6 +20,10 @@ public class Dialogues : MonoBehaviour
     private Color grey;
     private Color white;
     [SerializeField] private Sprite sprite;
+    [SerializeField] private GameObject self;
+    [SerializeField] private GameObject other;
+    [SerializeField] private int addTask;
+    //[SerializeField] private GameObject player;
        
     // Start is called before the first frame update
     void Start()
@@ -39,7 +43,10 @@ public class Dialogues : MonoBehaviour
        if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.JoystickButton1)) && _dialogueIndex == _dialogues.Count){
             TaskManager.taskManager++;
             canva = false;
-            _dialogueIndex = 0;
+            _dialogueIndex = 0;            
+            if (other != null){
+                other.SetActive(true);}
+            self.SetActive(false);
         }else if (isActive==true && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.JoystickButton1)) && _dialogueIndex != _dialogues.Count){
             canva = true;
             StartDialogue();
