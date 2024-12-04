@@ -5,22 +5,26 @@ using UnityEngine;
 using UnityEngine.ProBuilder.MeshOperations;
 using UnityEngine.UI;
 
-public class Dialogues : MonoBehaviour
+public class Lucifero : MonoBehaviour
 {
     //public static bool isActive = false;
 
     [SerializeField] private List<string> _dialogues = new List<string>();
     private bool isActive = false;
     private int _dialogueIndex = 0;
-    public static bool canva = false;
+    //public static bool canva = false;
     [SerializeField] private Text text;
-    [SerializeField] private bool inizia_Il_Detective;
+    public bool inizia_Il_Detective;
     [SerializeField] private Image _1;
     [SerializeField] private Image _2;
     private Color grey;
     private Color white;
     [SerializeField] private Sprite sprite;
-       
+    [SerializeField] private Sprite lucifero;
+    [SerializeField] private int newSpriteLuciferoCount;
+    [SerializeField] private SpriteRenderer render;
+    [SerializeField] private bool canva = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +39,10 @@ public class Dialogues : MonoBehaviour
         print("isActive: " + isActive);
         //print("index : " + _dialogueIndex);
         //print("dialogo "+_dialogues.Count);
+        if (_dialogueIndex == newSpriteLuciferoCount){
+            _1.sprite = lucifero;
+            render.sprite = lucifero;
+        }
         
        if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.JoystickButton1)) && _dialogueIndex == _dialogues.Count){
             TaskManager.taskManager++;
