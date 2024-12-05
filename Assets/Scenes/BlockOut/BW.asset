@@ -21,7 +21,7 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.345
+    m_Value: 0.384
   smoothness:
     m_OverrideState: 0
     m_Value: 0.2
@@ -43,10 +43,10 @@ MonoBehaviour:
   active: 1
   temperature:
     m_OverrideState: 1
-    m_Value: -16.8
+    m_Value: -86.3
   tint:
     m_OverrideState: 1
-    m_Value: -55.9
+    m_Value: -58.8
 --- !u!114 &-694665617498372514
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
-  m_Name: Global Volume Profile
+  m_Name: BW
   m_EditorClassIdentifier: 
   components:
   - {fileID: -694665617498372514}

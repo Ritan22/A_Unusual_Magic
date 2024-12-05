@@ -36,6 +36,7 @@ public class TaskManager : MonoBehaviour
     [SerializeField] private GameObject Biliardo1;
     [SerializeField] private GameObject Cavadavere;
     [SerializeField] private GameObject Biliardo5;
+    [SerializeField] private GameObject respawn;
 
     // Start is called before the first frame update
     void Start()
@@ -48,8 +49,8 @@ public class TaskManager : MonoBehaviour
     {
         if (Dialogues.canva == true){
             newCamera.SetActive(true);
-            newCamera.transform.localPosition = player.transform.localPosition;
-            player.SetActive(false);
+            //newCamera.transform.localPosition = player.transform.localPosition;
+            //player.SetActive(false);
             canva.SetActive(true);
         }else{
             canva.SetActive(false);
@@ -63,6 +64,8 @@ public class TaskManager : MonoBehaviour
             Fatina.SetActive(false);
             Fatina1.SetActive(true);
             Cameriera1.SetActive(true);
+            SchermataDialogoNera.SetActive(true);
+            player.transform.localPosition = respawn.transform.localPosition;
             //Cameriera.SetActive(false);
         }
         if (taskManager == 9){
