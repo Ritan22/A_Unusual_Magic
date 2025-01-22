@@ -56,6 +56,7 @@ public class Dialogues : MonoBehaviour
 
     public void StartDialogue()
     {
+        _1.sprite = sprite;
         text.text = "" + _dialogues[_dialogueIndex];
         _dialogueIndex++;
         inizia_Il_Detective = !inizia_Il_Detective;

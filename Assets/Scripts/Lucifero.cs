@@ -23,7 +23,12 @@ public class Lucifero : MonoBehaviour
     [SerializeField] private Sprite lucifero;
     [SerializeField] private int newSpriteLuciferoCount;
     [SerializeField] private SpriteRenderer render;
+
     [SerializeField] private GameObject canva;
+
+    [SerializeField] private GameObject self;
+    [SerializeField] private GameObject other;
+    [SerializeField] private GameObject inferno;
 
     // Start is called before the first frame update
     void Start()
@@ -42,13 +47,21 @@ public class Lucifero : MonoBehaviour
         if (_dialogueIndex == newSpriteLuciferoCount){
             _1.sprite = lucifero;
             render.sprite = lucifero;
+            inferno.SetActive(true);
         }
         
        if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.JoystickButton1)) && _dialogueIndex == _dialogues.Count){
             TaskManager.taskManager++;
             canva.SetActive(false);
             _dialogueIndex = 0;
-        }else if (isActive==true && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.JoystickButton1)) && _dialogueIndex != _dialogues.Count){
+            if (other != null)
+            {
+                other.SetActive(true);
+            }
+            self.SetActive(false);
+            
+        }
+        else if (isActive==true && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.JoystickButton1)) && _dialogueIndex != _dialogues.Count){
             canva.SetActive(true);
             StartDialogue();
         }

@@ -20,7 +20,7 @@ public class Minigioco : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {/*
         if (Input.GetKeyDown(KeyCode.Mouse0) && (isActive == true)){
             if (self != null)
                 self.SetActive(!self.activeInHierarchy);
@@ -32,9 +32,9 @@ public class Minigioco : MonoBehaviour
                 down.SetActive(!down.activeInHierarchy);
             if (up != null)
                 up.SetActive(!up.activeInHierarchy);
-        }
+        }*/
     }
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("MainCamera"))
         {
@@ -50,5 +50,17 @@ public class Minigioco : MonoBehaviour
             PlayerInteractor.canInteract = false;
         }
 
+    }*/
+    public void funzione(){
+        if (self != null)
+            self.SetActive(!self.activeInHierarchy);
+        if (dx != null)
+            dx.SetActive(!dx.activeInHierarchy);
+        if (sx != null)
+            sx.SetActive(!sx.activeInHierarchy);
+        if (down != null)
+            down.SetActive(!down.activeInHierarchy);
+        if (up != null)
+            up.SetActive(!up.activeInHierarchy);
     }
 }

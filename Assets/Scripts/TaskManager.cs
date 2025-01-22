@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TaskManager : MonoBehaviour
@@ -37,6 +38,11 @@ public class TaskManager : MonoBehaviour
     [SerializeField] private GameObject Cavadavere;
     [SerializeField] private GameObject Biliardo5;
     [SerializeField] private GameObject respawn;
+    public static bool minigioco;
+    [SerializeField] private GameObject portaChiusa;
+    [SerializeField] private GameObject portaAperta;
+    [SerializeField] private GameObject cameraEffetto;
+    [SerializeField] private GameObject altraFatina;
 
     // Start is called before the first frame update
     void Start()
@@ -54,54 +60,64 @@ public class TaskManager : MonoBehaviour
             canva.SetActive(true);
         }else{
             canva.SetActive(false);
-            player.SetActive(true);
+            //player.SetActive(true);
             newCamera.SetActive(false);
         }
+        if (minigioco){
+            print("Yout win");
+            portaChiusa.SetActive(false);
+            portaAperta.SetActive(true);
+            player.SetActive(true);
+            Cursor.lockState = CursorLockMode.Locked;
+            cameraEffetto.SetActive(false);
+            minigioco = false;
+        }
         if (taskManager == 4){
-            //SchermataDialogoNera.SetActive(true);
+            SchermataDialogoNera.SetActive(true);
             Barista.SetActive(false);
             Barista1.SetActive(true);
             Fatina.SetActive(false);
             Fatina1.SetActive(true);
             Cameriera1.SetActive(true);
-            SchermataDialogoNera.SetActive(true);
-            player.transform.localPosition = respawn.transform.localPosition;
-            //Cameriera.SetActive(false);
+            //player.transform.localPosition = respawn.transform.localPosition;
         }
-        if (taskManager == 9){
+        if (taskManager == 8){
             Barista2.SetActive(true);
             Barista.SetActive(false);
         }
-        if (taskManager == 10){
+        if (taskManager == 9){
             Piangente.SetActive(false);
             Pinagente3.SetActive(true);
         }
-        if (taskManager == 11){
-            Minigioco.SetActive(false);
+        if (taskManager == 10){
+            //Minigioco.SetActive(false);
             Minigioco.SetActive(true);
         }
-        if (taskManager == 12){
+        if (taskManager == 11){
             Piangente.SetActive(false);
             Pinagente4.SetActive(true);
         }
-        if (taskManager == 13){
-            Biliardo.SetActive(false);
+        if (taskManager == 12){
+            Biliardo.SetActive(true);
             Biliardo1.SetActive(true);
         }
-        if (taskManager == 14){
+        if (taskManager == 13){
             Piangente.SetActive(false);
             Pinagente5.SetActive(true);
         }
-        if (taskManager == 15){
+        if (taskManager == 14){
             Polizziotto1.SetActive(true);
         }
-        if (taskManager == 16){
+        if (taskManager == 15){
+            altraFatina.SetActive(false);
             Fatina.SetActive(false);
             Lucifero1.SetActive(true);
         }
-        if (taskManager == 17){
+        if (taskManager == 16){
             Cavadavere.SetActive(true);
         }
         print(taskManager);
     }
+
+
 }

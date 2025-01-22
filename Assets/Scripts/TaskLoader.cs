@@ -8,6 +8,6 @@ public class TaskLoader : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        TaskManager.taskManager += taskAdder;
+        TaskManager.taskManager++;
     }
 }
